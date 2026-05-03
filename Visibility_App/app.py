@@ -7,6 +7,7 @@ from sklearn.preprocessing import MinMaxScaler
 from utils.timefeatures import time_features
 import datetime
 import plotly.graph_objects as go
+import os
 
 # ==========================================
 # 全局页面配置
@@ -82,7 +83,8 @@ def load_model():
     net = model_module.Model(config).to(device)
     
     # 载入离线训练的权重字典
-    net.load_state_dict(torch.load('best_model.pth', map_location=device))
+    model_path = os.path.join(os.path.dirname(__file__), 'best_model.pth')
+    net.load_state_dict(torch.load(model_path, map_location=device))
     net.eval()
     return net, device
 
