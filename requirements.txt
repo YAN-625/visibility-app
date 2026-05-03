@@ -1,0 +1,8 @@
+streamlit
+torch
+pandas
+numpy
+scikit-learn
+matplotlib
+plotly
+reformer-pytorch
